@@ -30,8 +30,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <AttendanceForm fetchList={fetchList} list={list}/>
-      <AttendanceList list={list} fetchList={fetchList}/>
+      <AttendanceForm fetchList={fetchList} list={list} />
+      <AttendanceList list={list} fetchList={fetchList} />
+      <footer>
+        <p>Contributions welcome :)</p>
+        <p>https://github.com/blingusblongus/happy-hour-attendance</p>
+      </footer>
     </div>
   );
 }
