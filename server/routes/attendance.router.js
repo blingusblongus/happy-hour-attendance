@@ -21,11 +21,13 @@ router.post('/', (req, res) => {
                 id: id
             }
             data.push(person);
+            res.sendStatus(201)
         }).catch(err => {
             console.log(err);
+            res.sendStatus(500);
         })
 
-    res.sendStatus(201)
+    
 })
 
 module.exports = router;

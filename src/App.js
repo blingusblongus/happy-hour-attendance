@@ -7,22 +7,22 @@ import AttendanceList from './AttendanceList/AttendanceList';
 function App() {
   const [list, setList] = useState([]);
 
+  useEffect(() => {
+    fetchList();
+  }, []);
+
   const fetchList = () => {
     console.log('fetch run');
 
     axios.get('/attendance')
       .then(response => {
-        console.log(response);
         setList(response.data);
-        console.log(list);
       }).catch(err => {
         console.log(err);
       })
   }
 
-  useEffect(() => {
-    fetchList();
-  }, []);
+
 
   console.log(list);
 
@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-      <AttendanceForm />
+      <AttendanceForm fetchList={fetchList} list={list}/>
       <AttendanceList list={list}/>
     </div>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import axios from "axios";
 
-export default function AttendanceForm(props){
+export default function AttendanceForm({fetchList}){
     const [userName, setUserName] = useState('');
     const [going, setGoing] = useState('true');
 
@@ -13,6 +13,7 @@ export default function AttendanceForm(props){
         axios.post('/attendance', person)
             .then(response => {
                 console.log('POST SUCCESS');
+                fetchList();
             }).catch(err => {
                 console.log('POST err', err);
             })
