@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { Button } from "@mui/material";
+import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 
 import axios from "axios";
 
-export default function AttendanceForm({fetchList}){
+export default function AttendanceForm({ fetchList }) {
     const [userName, setUserName] = useState('');
     const [going, setGoing] = useState('true');
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        let person = {userName, going};
+        let person = { userName, going };
         axios.post('/attendance', person)
             .then(response => {
                 console.log('POST SUCCESS');
@@ -21,21 +23,28 @@ export default function AttendanceForm({fetchList}){
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" 
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            placeholder="Github Username"></input>
+            <input type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                placeholder="Github Username"></input>
             <div>
-                <input id="radio-y" type="radio" 
-                value="Yes" name="going" defaultChecked="true"
-                onChange={()=>setGoing(true)}/>
-                <label htmlFor="radio-y">Yes</label>
-                <input id="radio-n" type="radio" 
-                value="No" name="going"
-                onChange={()=>setGoing(false)}/>
-                <label htmlFor="radio-n">No</label>
+                {/* <input id="radio-y" type="radio"
+                    value="Yes" name="going" defaultChecked="true"
+                    onChange={() => setGoing(true)} />
+                <label htmlFor="radio-y">Going</label>
+                <input id="radio-n" type="radio"
+                    value="No" name="going"
+                    onChange={() => setGoing(false)} />
+                <label htmlFor="radio-n">Not Going</label> */}
+                <FormControl component="fieldset">
+                    <FormLabel component="legend">Are You Going?</FormLabel>
+                    <RadioGroup row aria-label="going?" name="row-radio-buttons-group">
+                        <FormControlLabel onChange={() => setGoing(true)} control={<Radio />} label="Going" value="true"/>
+                        <FormControlLabel onChange={() => setGoing(false)} control={<Radio />} label="Not Going" value="false"/>
+                    </RadioGroup>
+                </FormControl>
             </div>
-            <button type="submit">Submit</button>
+            <Button type="submit" variant="contained">Submit</Button>
         </form>
     )
 }
