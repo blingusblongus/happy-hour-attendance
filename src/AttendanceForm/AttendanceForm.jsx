@@ -21,6 +21,7 @@ export default function AttendanceForm({ fetchList }) {
             .then(response => {
                 console.log('POST SUCCESS');
                 fetchList();
+                setUserName('');
             }).catch(err => {
                 console.log('POST err', err);
             })

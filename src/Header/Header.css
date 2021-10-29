@@ -4,7 +4,7 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    font-size: 120%;
+    font-size: 100%;
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: .4px;
     -webkit-text-stroke-color: black;
@@ -14,6 +14,7 @@ header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    max-width: 100vw;
 }
 
 h1 {
@@ -22,7 +23,7 @@ h1 {
 
 @media screen and (min-width: 400px){
     header {
-        font-size: 200%;
+        font-size: 180%;
         height: 250px;
     }
 
