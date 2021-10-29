@@ -9,11 +9,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-const pizzaRouter = require('./routes/pizza.router.js');
-app.use('/api/pizza', pizzaRouter);
-
-const orderRouter = require('./routes/order.router.js');
-app.use('/api/order', orderRouter);
+const attendanceRouter = require('./routes/attendance.router.js');
+app.use('/attendance', attendanceRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
