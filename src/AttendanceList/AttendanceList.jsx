@@ -2,7 +2,9 @@ import Person from '../Person/Person.jsx';
 import './AttendanceList.css';
 
 function AttendanceList({list}) {
-    const attending = list.filter(el => el.going)
+    const attending = list.filter(el => el.going === 'true')
+    const maybe = list.filter(el => el.going === 'maybe')
+    const notGoing = list.filter(el => el.going === 'false')
     console.log(attending);
     return (
         <>
@@ -14,7 +16,15 @@ function AttendanceList({list}) {
                 )
             })}
         </div>
-        <h4>Not Going: {list.length - attending.length}</h4>
+        <h4>Maybe Going: {maybe.length}</h4>
+        <div className="flex-container">
+            {maybe.map((person, i) => {
+                return (
+                    <Person key={i} person={person}/>
+                )
+            })}
+        </div>
+        <h4>Not Going: {notGoing.length}</h4>
         </>
     )
 }

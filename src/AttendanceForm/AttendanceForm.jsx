@@ -39,8 +39,9 @@ export default function AttendanceForm({ fetchList }) {
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Are You Going?</FormLabel>
                     <RadioGroup row aria-label="going?" name="row-radio-buttons-group">
-                        <FormControlLabel onChange={() => setGoing(true)} control={<Radio />} label="Going" value="true"/>
-                        <FormControlLabel onChange={() => setGoing(false)} control={<Radio />} label="Not Going" value="false"/>
+                        <FormControlLabel onChange={() => setGoing('true')} control={<Radio />} label="Going" value="true"/>
+                        <FormControlLabel onChange={() => setGoing('maybe')} control={<Radio />} label="Maybe Going" value="maybe"/>
+                        <FormControlLabel onChange={() => setGoing('false')} control={<Radio />} label="Not Going" value="false"/>
                     </RadioGroup>
                 </FormControl>
             </div>
