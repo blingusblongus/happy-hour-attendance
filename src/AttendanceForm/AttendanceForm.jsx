@@ -3,13 +3,13 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function AttendanceForm(props){
-    const [name, setName] = useState('');
+    const [userName, setUserName] = useState('');
     const [going, setGoing] = useState('true');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        let person = {name, going};
+
+        let person = {userName, going};
         axios.post('/attendance', person)
             .then(response => {
                 console.log('POST SUCCESS');
@@ -21,9 +21,9 @@ export default function AttendanceForm(props){
     return (
         <form onSubmit={handleSubmit}>
             <input type="text" 
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Name"></input>
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder="Github Username"></input>
             <div>
                 <input id="radio-y" type="radio" 
                 value="Yes" name="going" defaultChecked="true"

@@ -1,3 +1,4 @@
+const axios = require('axios');
 const express = require('express');
 const router = express.Router();
 let data = require('../modules/data.js');
@@ -10,9 +11,20 @@ router.get('/', (req,res) =>{
 
 router.post('/', (req, res) => {
     id++;
-    let person = req.body;
-    person.id = id;
-    data.push(person);
+
+    axios.get(`https://api.github.com/users/${req.body.userName}`)
+        .then(response => {
+            let person = {
+                name: response.data.name,
+                photo: response.data.avatar_url,
+                going: req.body.going,
+                id: id
+            }
+            data.push(person);
+        }).catch(err => {
+            console.log(err);
+        })
+
     res.sendStatus(201)
 })
 
