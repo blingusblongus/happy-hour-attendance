@@ -31,7 +31,7 @@ function App() {
     <div className="App">
       <Header />
       <AttendanceForm fetchList={fetchList} list={list}/>
-      <AttendanceList list={list}/>
+      <AttendanceList list={list} fetchList={fetchList}/>
     </div>
   );
 }

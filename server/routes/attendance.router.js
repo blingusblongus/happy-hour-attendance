@@ -25,9 +25,15 @@ router.post('/', (req, res) => {
         }).catch(err => {
             console.log(err);
             res.sendStatus(500);
-        })
-
-    
+        })  
 })
+
+router.delete('/:id', (req, res) => {
+        let id = req.params.id;
+        data = data.filter(person => {
+            return person.id != id;
+        });
+        res.send(204);
+    });
 
 module.exports = router;

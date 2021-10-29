@@ -1,7 +1,7 @@
 import Person from '../Person/Person.jsx';
 import './AttendanceList.css';
 
-function AttendanceList({list}) {
+function AttendanceList({list, fetchList}) {
     const attending = list.filter(el => el.going === 'true')
     const maybe = list.filter(el => el.going === 'maybe')
     const notGoing = list.filter(el => el.going === 'false')
@@ -12,7 +12,7 @@ function AttendanceList({list}) {
         <div className="flex-container">
             {attending.map((person, i) => {
                 return (
-                    <Person key={i} person={person}/>
+                    <Person key={i} person={person} fetchList={fetchList}/>
                 )
             })}
         </div>
@@ -20,7 +20,7 @@ function AttendanceList({list}) {
         <div className="flex-container">
             {maybe.map((person, i) => {
                 return (
-                    <Person key={i} person={person}/>
+                    <Person key={i} person={person} fetchList={fetchList}/>
                 )
             })}
         </div>
