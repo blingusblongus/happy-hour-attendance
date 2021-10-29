@@ -1,5 +1,3 @@
-let data = [
-    {name: 'test'}
-];
+let data = [];
 
 module.exports = data;

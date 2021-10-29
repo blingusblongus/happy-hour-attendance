@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import AttendanceForm from './AttendanceForm/AttendanceForm';
 import AttendanceList from './AttendanceList/AttendanceList';
+import Header from './Header/Header';
 
 function App() {
   const [list, setList] = useState([]);
@@ -28,8 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <Header />
       <AttendanceForm fetchList={fetchList} list={list}/>
       <AttendanceList list={list}/>
     </div>

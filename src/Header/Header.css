@@ -1,0 +1,31 @@
+header {
+    background-image: url('https://media4.giphy.com/media/3oKIPuGIRtjn3vAaFW/200w.gif?cid=82a1493br1664cisyjhrykv43uadmtim91dmqsz6cv025uih&rid=200w.gif&ct=g');
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-size: 120%;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: .4px;
+    -webkit-text-stroke-color: black;
+    font-family: papyrus;
+    font-weight: bold;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+@media screen and (min-width: 400px){
+    header {
+        font-size: 200%;
+        height: 250px;
+    }
+
+    h1 {
+        margin-top: 0px;
+    }
+}
