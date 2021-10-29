@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
-import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
+import { FormControl, FormLabel, 
+    RadioGroup, FormControlLabel, Radio, 
+    TextField, Paper} from "@mui/material";
+import './AttendanceForm.css';
 
 import axios from "axios";
 
 export default function AttendanceForm({ fetchList }) {
     const [userName, setUserName] = useState('');
-    const [going, setGoing] = useState('true');
+    const [going, setGoing] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if(!going) return;
 
         let person = { userName, going };
         axios.post('/attendance', person)
@@ -23,11 +28,11 @@ export default function AttendanceForm({ fetchList }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text"
+            <TextField type="text"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
-                placeholder="Github Username"></input>
-            <div>
+                label="Github Username"></TextField>
+            <div id="radio-container">
                 {/* <input id="radio-y" type="radio"
                     value="Yes" name="going" defaultChecked="true"
                     onChange={() => setGoing(true)} />
@@ -36,6 +41,7 @@ export default function AttendanceForm({ fetchList }) {
                     value="No" name="going"
                     onChange={() => setGoing(false)} />
                 <label htmlFor="radio-n">Not Going</label> */}
+                <Paper elevation={2}>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Are You Going?</FormLabel>
                     <RadioGroup row aria-label="going?" name="row-radio-buttons-group">
@@ -44,6 +50,7 @@ export default function AttendanceForm({ fetchList }) {
                         <FormControlLabel onChange={() => setGoing('false')} control={<Radio />} label="Not Going" value="false"/>
                     </RadioGroup>
                 </FormControl>
+                </Paper>
             </div>
             <Button type="submit" variant="contained">Submit</Button>
         </form>
