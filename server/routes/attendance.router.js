@@ -20,7 +20,8 @@ router.post('/', (req, res) => {
                 going: req.body.going,
                 id: id
             }
-            data.push(person);
+            
+            person.name && data.push(person);
             res.sendStatus(201)
         }).catch(err => {
             console.log(err);
