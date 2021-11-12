@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
     axios.get(`https://api.github.com/users/${req.body.userName}`)
         .then(response => {
             let person = {
-                name: response.data.name || response.data.login,
+                name: response.data.name,
                 photo: response.data.avatar_url,
                 going: req.body.going,
                 id: id
