@@ -15,6 +15,8 @@ function Person({person, fetchList}){
             });
     }
 
+    
+
     return (
         <div className="card">
             <img src={person.photo} alt={person.name + " photo"}/>
