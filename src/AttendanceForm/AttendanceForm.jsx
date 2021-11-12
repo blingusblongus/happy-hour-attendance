@@ -14,7 +14,7 @@ export default function AttendanceForm({ fetchList }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!going) return;
+        if(!going || !userName) return;
 
         let person = { userName, going };
         axios.post('/attendance', person)
