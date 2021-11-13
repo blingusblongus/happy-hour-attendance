@@ -20,7 +20,7 @@ function Person({person, fetchList}){
     return (
         <div className="card">
             <img src={person.photo} alt={person.name + " photo"}/>
-            <div>{person.name?split(' ')[0]}</div>
+            <div>{person.name?.split(' ')[0]}</div>
             <Button onClick={handleClick}>Remove</Button>
         </div>
     )
