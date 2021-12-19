@@ -1,6 +1,8 @@
+
 import './Header.css';
 
-function Header(props){
+function Header(props) {
+
     return (
         <header>
             <h1>HAPPY HOUR ATTENDANCE</h1>

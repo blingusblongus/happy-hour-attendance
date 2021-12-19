@@ -13,6 +13,7 @@ header {
     margin-top: 0px;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
     max-width: 100vw;
 }
