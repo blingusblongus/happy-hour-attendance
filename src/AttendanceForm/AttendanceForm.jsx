@@ -48,6 +48,7 @@ export default function AttendanceForm({ fetchList }) {
         mx: 'auto',
         gap: 2,
         zIndex: 500,
+        mt: -12,
     }
 
     // INPUT controls the actual size of the TextField

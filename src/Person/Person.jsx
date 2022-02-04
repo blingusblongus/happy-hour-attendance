@@ -31,8 +31,8 @@ function Person({ person, fetchList }) {
 
     // IMAGE properties
     const sxImageControl = {
-        height: 200,
-        width: 200,
+        height: 140,
+        width: 140,
         borderRadius: '50%',
         boxShadow: 2,
     }

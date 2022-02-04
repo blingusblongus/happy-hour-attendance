@@ -20,11 +20,15 @@ function AttendanceList({ list, fetchList }) {
         flexWrap: 'wrap',
         gap: 2,
         width: '90%',
-        mx: 'auto'
+        mx: 'auto',
+    }
+
+    const sxListContainer = {
+        mt: -3,
     }
 
     return (
-        <Box>
+        <Box sx={sxListContainer}>
             <h3>Going: {attending.length}</h3>
             <Box sx={sxListContent} >
                 {attending.map((person, i) => {
