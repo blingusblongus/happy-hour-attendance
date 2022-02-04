@@ -27,17 +27,13 @@ function App() {
       })
   }
 
-
-
-  console.log(list);
-
   return (
     <Box className="App">
       <Header />
       <AttendanceForm fetchList={fetchList} list={list} />
       <AttendanceList fetchList={fetchList} list={list} />
       <footer>
-        <p>Contributions welcome :)</p>
+        <p>Code Contributions welcome :)</p>
         <p>https://github.com/blingusblongus/happy-hour-attendance</p>
       </footer>
     </Box>
